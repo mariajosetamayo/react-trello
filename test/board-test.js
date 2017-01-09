@@ -25,6 +25,10 @@ describe ('Board component', function(){
   board[0].props.children.should.equal('Trello board test');
 
   const listContainer = result.props.children[1][0]
-  // listContainer.props.title.should.equal('this is the title for the card test');
-
-})
+  console.log('this is the title',listContainer.props.children.props.listTitle.cards)
+  listContainer.props.children.props.listTitle.title.should.equal('this is the title for the card test');
+  listContainer.props.children.props.listTitle.cards.should.have.length(3);
+  listContainer.props.children.props.listTitle.cards[0].text.should.equal('card1');
+  listContainer.props.children.props.listTitle.cards[1].text.should.equal('card2');
+  listContainer.props.children.props.listTitle.cards[2].text.should.equal('card3');
+});
